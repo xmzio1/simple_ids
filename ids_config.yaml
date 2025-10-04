@@ -1,0 +1,23 @@
+window: 10
+syn_threshold: 100
+icmp_threshold: 200
+port_scan_ports: 20
+cleanup_interval: 5
+alert_cooldown: 60
+logfile: advanced_ids.log
+log_max_bytes: 5242880
+log_backup_count: 3
+slack_webhook: null
+email:
+  smtp_server: smtp.example.com
+  smtp_port: 587
+  username: user@example.com
+  password: YOUR_SMTP_PASSWORD
+  from: ids@example.com
+  to:
+    - admin1@example.com
+    - admin2@example.com
+auto_block: false
+block_command_template: "sudo iptables -I INPUT -s {ip} -j DROP"
+block_dry_run: true
+signatures_file: signatures.txt
