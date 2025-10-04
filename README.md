@@ -93,55 +93,53 @@ Get the IDS running in just a few steps.
    pip install --upgrade pip
    pip install scapy pyyaml requests
 Identify the network interface to monitor
-
+```
 ip link show
-# or
+or
 ifconfig -a
-
+```
 
 Run the IDS
-
+```
 sudo python3 simple_ids.py -i <interface>
-# Example:
+Example:
 sudo python3 simple_ids.py -i eth0
-
+```
 
 (Optional) Use a YAML configuration file
-
+```
 sudo python3 simple_ids.py -i eth0 -c ids_config.yaml
-
+```
 
 Tip: Start with block_dry_run: true in the config to avoid accidental blocking while you validate alerts.
 
 🧰 Usage Examples
+---
 
 Examples showing common ways to run the tool:
 
 Simple run (default thresholds):
-
+```
 sudo python3 simple_ids.py -i eth0
-
+```
 
 Run with a configuration file:
-
+```
 sudo python3 simple_ids.py -i eth0 -c ids_config.yaml
-
+```
 
 Use a BPF filter to reduce captured traffic:
-
+```
 sudo python3 simple_ids.py -i eth0 --bpf "tcp or icmp"
-
-
-Specify a custom signatures file:
-
-sudo python3 simple_ids.py -i eth0 --signatures my_signatures.txt
+```
 
 
 Override thresholds via CLI (if supported):
-
+```
 sudo python3 simple_ids.py -i eth0 --syn-threshold 50 --icmp-threshold 150 --window 15
-
+```
 
 Run in foreground and pipe logs:
-
+```
 sudo python3 simple_ids.py -i eth0 -c ids_config.yaml 2>&1 | tee ids_runtime.log
+```
