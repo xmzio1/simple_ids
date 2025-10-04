@@ -1,0 +1,4 @@
+union\s+select
+<script>.*</script>
+(?i)select.+from.+information_schema
+password=.*&username=xmzio1
